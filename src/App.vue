@@ -1,11 +1,12 @@
 <template>
-  <h1 ref="greet">hi {{ title }}</h1>
-  <input type="text" ref="name">
-  <button @click="clickHandler">Click</button>
+  <h1 ref="greet">hi</h1>
+  <Modal/>
 </template>
 
 <script>
+import Modal from './components/Modal.vue'
 export default {
+
   data(){
     return{
       title:'U dont know me'
@@ -17,6 +18,9 @@ export default {
       this.$refs.name.focus()
       this.$refs.greet.textContent = 'hi there'
     }
+  },
+  components:{
+    Modal:Modal
   }
 }
 </script>
