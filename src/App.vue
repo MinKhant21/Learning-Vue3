@@ -1,31 +1,28 @@
 <template>
   <h1 ref="greet">hi</h1>
-  <Modal/>
+  <p>App title</p>
+  <Modal :header="header" :content="content" :theme="theme"/>
 </template>
 
 <script>
-import Modal from './components/Modal.vue'
+import Modal from "./components/Modal-m.vue" 
 export default {
 
   data(){
     return{
-      title:'U dont know me'
+      header:"Login in",
+      content:"Welcome Kaung Min Khant",
+      theme:"success"
     }
   },
-  methods:{
-    clickHandler()
-    {
-      this.$refs.name.focus()
-      this.$refs.greet.textContent = 'hi there'
-    }
-  },
+
   components:{
-    Modal:Modal
+    Modal: Modal
   }
 }
 </script>
 
-<style>
+<style scoped>
 h1{
   color:blue;
 }
