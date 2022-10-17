@@ -1,5 +1,5 @@
 <template>
-  <div class="backdrop">
+  <div class="backdrop" @click.self="closeModal">
     <div class="modal" :class="{success:theme=='success'}">
         <h1>{{ header }}</h1>
         <p>{{ content }}</p>
@@ -10,7 +10,13 @@
 
 <script>
 export default {
-  props:['header','content','theme']
+  props:['header','content','theme'],
+  methods:{
+    closeModal()
+    {
+      this.$emit("close")
+    }
+  }
 }
 </script>
 
@@ -20,15 +26,17 @@ export default {
 }
 .backdrop{
     position:fixed;
-    background-color: bisque;
+    top: 0;
+    background-color: rgba(0, 0, 0,0.5);
     width: 100%;
     height: 100%;
 }
 .modal{
-    background-color: white;
-    padding: 100px auto;
-    margin: 100px auto;
-   
+  width: 400px;
+  padding: 20px;
+  margin: 100px auto;
+  border-radius: 10px;
+  background-color: white;
 }
 P{
   font-style: normal;

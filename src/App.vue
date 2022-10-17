@@ -1,7 +1,11 @@
 <template>
   <h1 ref="greet">hi</h1>
   <p>App title</p>
-  <Modal :header="header" :content="content" :theme="theme"/>
+  <div v-if="showModal">
+    <Modal :header="header" :content="content" :theme="theme" @close="showModal=false" />
+  </div>
+  <button @click="showModal=true">Open Modal</button>
+  
 </template>
 
 <script>
@@ -12,7 +16,8 @@ export default {
     return{
       header:"Login in",
       content:"Welcome Kaung Min Khant",
-      theme:"success"
+      theme:"success",
+      showModal:false
     }
   },
 
